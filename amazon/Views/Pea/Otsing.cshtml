@@ -1,0 +1,67 @@
+﻿@model IEnumerable<amazon.AWSE.Item>
+@{
+    ViewBag.Title = "Otsing";
+}
+<script src="~/Scripts/CurrencyChange.js"></script>
+<h2>Otsing</h2>
+@{
+    bool isPreviousLinkVisible = ViewBag.IsPreviousLinkVisible ?? false;
+    bool isNextLinkVisible = ViewBag.IsNextLinkVisible ?? false;
+    var item1 = Model.First();
+}
+<select id="currency" name="currency" onchange="changePrices(this)">
+    @foreach (var currency in ViewBag.Currency)
+    {
+        if (item1.OfferSummary != null && item1.OfferSummary.LowestNewPrice != null 
+            && currency == item1.OfferSummary.LowestNewPrice.CurrencyCode)
+        {
+            <option value="@currency" selected>@currency</option>
+        }
+        else
+        {
+            <option value="@currency">@currency</option>
+        }
+    }
+    </select> 
+@{
+    <div class="CSSTableGenerator">
+        <table>
+            <tr>
+                <td>Title</td>
+                <td>Price</td>
+            </tr>
+            @foreach (var item in Model)
+            {
+                string price;
+                if (item.OfferSummary == null)
+                {
+                    price = "Unavailable";
+                }
+                else if (item.OfferSummary.LowestNewPrice == null)
+                {
+                    price = "Unavailable";
+                }
+                else
+                {
+                    price = item.OfferSummary.LowestNewPrice.FormattedPrice;
+                    price = price.Replace("$", string.Empty);
+                    price = price.Replace(",", string.Empty);
+                }
+
+                <tr><td id="item">@item.ItemAttributes.Title</td><td class="price">@price</td></tr>
+
+            }
+        </table>
+    </div>
+}
+@if (isPreviousLinkVisible)
+{
+    <a id="previousLink" href="@Href("~/Pea/Otsing/" + (ViewBag.LeheNumber - 1))">&lt; Previous Page</a>
+}
+
+@if (isNextLinkVisible)
+{
+    <a id="nextLink" href="@Href("~/Pea/Otsing/" + (ViewBag.LeheNumber + 1))">Next Page &gt;</a>
+}
+<br />
+&lt;@Html.ActionLink("Tagasi otsingu lehele.", "BackToMain", "Pea", null, new { id= "tagasi"})

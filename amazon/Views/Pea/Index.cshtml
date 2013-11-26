@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+<h2>Amazon product search:</h2>
+
+@{
+    using(Html.BeginForm("Index","Pea",FormMethod.Post))
+    {
+        <input id="otsing" type="text" name="sona" />
+        <input id="saada" type="submit" value="Search" />
+    }
+}
+@{
+    if(ViewBag.error != null)
+    {
+        <div class="alert-message error">
+            <p>@ViewBag.error</p>
+        </div>
+    }
+}

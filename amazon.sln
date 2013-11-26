@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "amazon", "amazon\amazon.csproj", "{6CB6A26D-62E5-4AC4-ABD9-46DBD1958BF1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Amazon.PAAPI.WCF", "Amazon.PAAPI.WCF\Amazon.PAAPI.WCF.csproj", "{D38B4A40-D315-4158-9BD1-34C1697668BB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{6CB6A26D-62E5-4AC4-ABD9-46DBD1958BF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6CB6A26D-62E5-4AC4-ABD9-46DBD1958BF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6CB6A26D-62E5-4AC4-ABD9-46DBD1958BF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D38B4A40-D315-4158-9BD1-34C1697668BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D38B4A40-D315-4158-9BD1-34C1697668BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D38B4A40-D315-4158-9BD1-34C1697668BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D38B4A40-D315-4158-9BD1-34C1697668BB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
